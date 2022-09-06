@@ -23,8 +23,22 @@ func total(arr ...int) int {
 
 }
 
+
 func main() {
 	pl(manySum(5, 4))
 	pl(total(1, 2, 3, 4, 5))
 
+	{
+	name := []string{"Uno", "Dos", "Tres"}
+	num := []int{1, 2, 3}
+	v := -1
+
+	for _, i := range name {
+		v++
+
+		fmt.Println(i, num[v])
+
+	}
+
+}
 }
