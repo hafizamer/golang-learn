@@ -41,6 +41,18 @@ func addCust(c *customer, name string, hobby string) {
 	c.name = name
 	c.hobby = hobby
 }
+
+func nums1(channel chan int) {
+	channel <- 1
+	channel <- 2
+	channel <- 3
+}
+
+func nums2(channel chan int) {
+	channel <- 4
+	channel <- 5
+	channel <- 6
+}
 func main() {
 	pl(manySum(5, 4))
 	pl(total(1, 2, 3, 4, 5))
@@ -70,4 +82,15 @@ func main() {
 	var gundam Robot
 	gundam = mecha("Zeta")
 	gundam.saying()
+
+	channel1 := make(chan int)
+	channel2 := make(chan int)
+	go nums1(channel1)
+	go nums2(channel2)
+	fmt.Println(<-channel1)
+	fmt.Println(<-channel1)
+	fmt.Println(<-channel1)
+	fmt.Println(<-channel2)
+	fmt.Println(<-channel2)
+	fmt.Println(<-channel2)
 }
