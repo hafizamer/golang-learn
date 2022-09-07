@@ -23,7 +23,14 @@ func total(arr ...int) int {
 
 }
 
+type customer struct {
+	name, hobby string
+}
 
+func addCust(c *customer, name string, hobby string) {
+	c.name = name
+	c.hobby = hobby
+}
 func main() {
 	pl(manySum(5, 4))
 	pl(total(1, 2, 3, 4, 5))
@@ -41,4 +48,12 @@ func main() {
 	}
 
 }
+
+var q customer
+	var w customer
+	q.name = "Rex"
+	q.hobby = "Fishing"
+	fmt.Println(q.name)
+	addCust(&w, "Leo", "gaming")
+	fmt.Println(q.name, w.name, q.hobby, w.hobby)
 }
